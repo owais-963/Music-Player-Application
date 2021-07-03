@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Music Player</string>
+    <string name="textview">Song Name</string>
+    <string name="todo">TODO</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="play">Play</string>
+    <string name="pause">Pause</string>
+    <string name="play_list">Play List</string>
+    <string name="song_duration">00:00 / 00:00</string>
+    <string name="music">Music Theme</string>
+    <string name="frwrd">Forward</string>
+    <string name="bkwrd">Backward</string>
+    <string name="shuffle">Shuffle</string>
+    <string name="loop">Loop</string>
+    <string name="share">Share</string>
+    <string name="title">Now Playing</string>
+    <string name="shareSong">Share the song</string>
+    <string name="shareApp">Share the app</string>
+
+</resources>
