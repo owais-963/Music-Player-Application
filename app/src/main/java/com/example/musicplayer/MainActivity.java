@@ -1,4 +1,4 @@
-package com.example.musicplayer;
+ package com.example.musicplayer;
 
 import android.annotation.SuppressLint;
 import android.app.Notification;
@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity{
 
         handler=new Handler();
 
-        int delay=500;
+        int delay=1000;
 
 
         handler.postDelayed(new Runnable() {
@@ -166,12 +166,12 @@ public class MainActivity extends AppCompatActivity{
             public void run() {
                 try {
                     seekBar.setProgress(mediaPlayer.getCurrentPosition());
-                    handler.postDelayed(this,300);
+                    handler.postDelayed(this,1000);
                 }catch (Exception e){
                     e.printStackTrace();
                 }
             }
-        },300);
+        },1000);
 
         frwrd_bkwrd(mediaPlayer);
 
@@ -240,7 +240,7 @@ public class MainActivity extends AppCompatActivity{
         s_t_duration=findViewById(R.id.timeDuration);
 
         handler = new Handler();
-        final int delay = 500;
+        final int delay = 1000;
         try {
             handler.postDelayed(new Runnable() {
                 @SuppressLint("SetTextI18n")
@@ -259,6 +259,18 @@ public class MainActivity extends AppCompatActivity{
         }catch (Exception e){
             e.printStackTrace();
         }
+
+        mSeekbarUpdateHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    seekBar.setProgress(mediaPlayer.getCurrentPosition());
+                    handler.postDelayed(this,1000);
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        },1000);
 
         //set_duration(mediaPlayer);
 
@@ -671,7 +683,7 @@ public class MainActivity extends AppCompatActivity{
         }
         return result;
     }
-
+/*
     public void notification(String songName){
         NotificationCompat.Builder builder = new NotificationCompat.Builder(MainActivity.this)
                 .setSmallIcon(R.drawable.musicnode)
@@ -736,7 +748,7 @@ public class MainActivity extends AppCompatActivity{
                  try {
                      currentPosition=mediaPlayer.getCurrentPosition();
                      seekBar.setProgress(currentPosition);
-                     mSeekbarUpdateHandler.postDelayed(this, 500);
+                     mSeekbarUpdateHandler.postDelayed(this, 1000);
 
                  }catch (Exception e){
                      e.printStackTrace();
@@ -744,10 +756,13 @@ public class MainActivity extends AppCompatActivity{
                 }
             }
         };
-        mSeekbarUpdateHandler.postDelayed(mUpdateSeekbar, 500);
+        mSeekbarUpdateHandler.postDelayed(mUpdateSeekbar, 1000);
         mSeekbarUpdateHandler.removeCallbacks(mUpdateSeekbar);
 
     }
+
+
+ */
 
     public void share(Uri uri){
         String url="https://drive.google.com/drive/folders/15uTK1PTNpFtLPckrsZXCwTnBbICfrWcn?usp=sharing";

@@ -32,22 +32,18 @@
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold" />
+
     </androidx.cardview.widget.CardView>
 
-
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="393dp"
-        android:layout_height="717dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="#000"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="0dp"
+        android:layout_height="882dp"
+        android:layout_marginTop="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView">
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
-    </ListView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

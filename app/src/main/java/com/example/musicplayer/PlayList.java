@@ -4,6 +4,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -27,6 +28,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.musicplayer.Adapter.PlaylistAdapter;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.PermissionDeniedResponse;
@@ -39,7 +41,8 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class PlayList extends AppCompatActivity {
-    ListView listView;
+    //ListView listView;
+    RecyclerView recyclerView;
     ArrayList<File> mysongs;
     String items[];
 
@@ -78,6 +81,7 @@ public class PlayList extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_play_list);
         Dexter.withContext(PlayList.this).withPermission(Manifest.permission.READ_EXTERNAL_STORAGE).
                 withListener(new PermissionListener() {
@@ -88,9 +92,21 @@ public class PlayList extends AppCompatActivity {
                         for (int i = 0; i < mysongs.size(); i++) {
                             items[i] = mysongs.get(i).getName().replace(".mp3", "").replace(".wav", "");
                         }
+                        /*
                         listView = findViewById(R.id.listView);
                         OwaisAddapter addapter = new OwaisAddapter(PlayList.this, 0, items);
                         listView.setAdapter(addapter);
+
+                         */
+                        recyclerView=findViewById(R.id.recyclerView);
+                        LinearLayoutManager layoutManager=new LinearLayoutManager(PlayList.this);
+                        recyclerView.setLayoutManager(layoutManager);
+                        //recyclerView.addItemDecoration(new DividerItemDecoration(
+                          //     PlayList.this,DividerItemDecoration.VERTICAL));
+                        PlaylistAdapter adapter=new PlaylistAdapter(items,PlayList.this);
+                        recyclerView.setAdapter(adapter);
+
+
                     }
 
                     @Override
@@ -124,7 +140,7 @@ public class PlayList extends AppCompatActivity {
         }
         return arrayList;
     }
-
+/*
     public class OwaisAddapter extends ArrayAdapter<String> {
         private String[] arr;
         private Context context;
@@ -165,5 +181,8 @@ public class PlayList extends AppCompatActivity {
         }
 
     }
+
+
+ */
 
 }
